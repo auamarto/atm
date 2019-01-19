@@ -1,0 +1,24 @@
+language: php
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - libxml2-utils
+
+php:
+- 7.2
+- 7.3
+
+before_install:
+- composer clear-cache
+
+install:
+- composer install
+
+script:
+- ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+notifications:
+  email: false

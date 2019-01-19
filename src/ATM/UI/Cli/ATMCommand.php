@@ -43,14 +43,10 @@ class ATMCommand extends Command
         $helper = $this->getHelper('question');
         $output->writeln('Please Enter The Withdrawal Amouint in Multiples Of $10.00?');
         $question = new Question('Amount: ', null);
-        $question->setValidator(function ($answer) {
-            if (!null === $answer || !is_numeric($answer) || $answer < 0) {
-                throw new InvalidArgumentException('Provide positive number.');
-            }
-
-            return $answer;
-        });
         $amount = $helper->ask($input, $output, $question);
+        if (!null === $amount || !is_numeric($amount) || $amount < 0) {
+            throw new InvalidArgumentException('Provide positive number.');
+        }
         $notes = $this->queryBus->handle(new WithdrawMoneyQuery((int)$amount));
 
         foreach ($notes as $note => $qty) {
