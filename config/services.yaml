@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false       # Allows optimizing the container by removing unused services; this also means
+
+    ATM\:
+        resource: '../src/ATM/*'
+        exclude: '../src/ATM/{DependencyInjection,Model,Migrations,Tests,Kernel.php}'
+#
+#    ATM\UI\Rest\Controller\:
+#        resource: '../src/ATM/UI/Rest/Controller'
+#        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+
