@@ -1,4 +1,4 @@
-# ATM Infinite Bank
+# ATM Infinite Bank [![Build Status](https://api.travis-ci.org/auamarto/atm.svg?branch=master)](https://api.travis-ci.org/auamarto/atm.svg?branch=master)
 
 ## Assumptions
 Installed php7.2+, Composer
